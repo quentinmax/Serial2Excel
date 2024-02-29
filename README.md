@@ -1,4 +1,4 @@
-# Serial2Excel
+![serial2excel-screenshot](https://github.com/quentinmax/Serial2Excel/assets/82818659/62dfc98d-ba84-4372-884c-3d69e31e5d01)
 
 Serial2Excel is a CLI for capturing data from a serial connection (e.g. Arduino) and exporting it to an Excel spreadsheet or a .csv file.
 
@@ -50,6 +50,8 @@ serial2excel [port] [options]
 ```
 
 1. Ensure that the serial device is configured to send data in a semicolon-separated format, such as `data1;data2;data3`.
+
+![serial-monitor-screenshot](https://github.com/quentinmax/Serial2Excel/assets/82818659/7ce5d819-2d70-4066-87b4-b1109e74b2eb)
 
 2. Start Serial2Excel by running it in your terminal or command prompt.
 
