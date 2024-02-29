@@ -6,6 +6,7 @@ Serial2Excel is a CLI for capturing data from a serial connection (e.g. Arduino)
 
 - [Features](#features)
 - [Installation](#installation)
+- [Notes](#notes)
 - [Usage](#usage)
   - [Options](#options)
 - [Examples](#examples)
@@ -29,6 +30,13 @@ or run
 ```bash
 npx serial2excel [port] [options]
 ```
+
+## Notes
+
+- Ensure that no other devices or programs are utilizing the serial connection before running the command.
+- If you don't include file extensions in your output file path, the CLI will add them based on the chosen file type (see [second example](#examples)).
+- Use -h or --help to display information about the available options.
+- If you are using Windows PowerShell make sure two wrap your columns in quotation marks `-c 'Column1,Column2,Column3'`. Otherwise PowerShell parses the commas wrong, resulting in an error.
 
 ## Usage
 
@@ -67,21 +75,14 @@ serial2excel [port] [options]
 
 ## Examples
 
-1. Capture data from the serial port '/dev/ttyUSB0' and save it as an Excel file named 'data.xlsx':
+Capture data from the serial port '/dev/ttyUSB0' and save it as an Excel file named 'data.xlsx':
 
 ```bash
     serial2excel /dev/ttyUSB0 -o ./data.xlsx -br 9600 -c 'Column1,Column2,Column3'
 ```
 
-2. Capture data and save it as a CSV file named 'data.csv':
+Capture data and save it as a CSV file named 'data.csv':
 
 ```bash
     serial2excel com4 --csv -o ./data -br 115200 -c 'Temperature,Humidity,Pressure'
 ```
-
-## Notes
-
-- Ensure that no other devices or programs are utilizing the serial connection before running the command.
-- If you don't include file extensions in your output file path, the CLI will add them based on the chosen file type.
-- Use -h or --help to display information about the available options.
-- If you are using Windows PowerShell make sure two wrap your columns in quotation marks `-c 'Column1,Column2,Column3'`. Otherwise PowerShell parses the commas wrong, resulting in an error.
