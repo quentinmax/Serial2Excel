@@ -67,10 +67,10 @@ serial2excel [port] [options]
 
 ```
 -V, --version                       output the version number
--br, --baud-rate [number]           set the baud rate for serial communication (default: 9600)
+-br, --baud-rate [number]           set baud rate for serial communication (default: 9600)
 --csv                               use .csv instead of .xlsx
 -o, --output <filepath>             define the output file path and filename. (e.g. '/path/to/file/filename')
--c, --columns <col1,col2,...>       define the columns of the table (e.g. 'Song,Musician,Album)
+-c, --columns <col1,col2,...>       define the columns of the table (e.g. 'Song,Musician,Album')
 -h, --help                          display help for command
 ```
 
