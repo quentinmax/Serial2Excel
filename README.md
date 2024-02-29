@@ -2,6 +2,20 @@
 
 Serial2Excel is a CLI for capturing data from a serial connection (e.g. Arduino) and exporting it to an Excel spreadsheet or a .csv file.
 
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Options](#options)
+- [Examples](#examples)
+
+## Features
+
+- Capture data from a serial device.
+- Process incoming data in real-time.
+- Generate output files (Excel, CSV) containing the captured and processed data.
+
 ## Installation
 
 Install `serial2excel` globally using npm:
@@ -26,7 +40,21 @@ Once installed, you can use the serial2excel command to capture data from a seri
 serial2excel [port] [options]
 ```
 
-## Options
+1. Ensure that the serial device is configured to send data in a semicolon-separated format, such as `data1;data2;data3`.
+
+2. Start Serial2Excel by running it in your terminal or command prompt.
+
+3. The CLI will start capturing data from the serial device automatically as it's sent in the semicolon-separated format.
+
+4. Continue sending data from the serial device in the specified format (`data1;data2;data3`). The CLI will capture and process the incoming data.
+
+5. When you're done sending data, send the command `stop` via the serial device. This signals to the CLI that data transmission is complete.
+
+6. Receiving the `stop` command, the CLI will stop capturing data and begin processing the collected data.
+
+7. Once the data processing is complete the output file will be generated (Excel spreadsheet / CSV files).
+
+### Options
 
 ```
 -V, --version                       output the version number
@@ -51,7 +79,7 @@ serial2excel [port] [options]
     serial2excel com4 --csv -o ./data -br 115200 -c 'Temperature,Humidity,Pressure'
 ```
 
-# Notes
+## Notes
 
 - Ensure that no other devices or programs are utilizing the serial connection before running the command.
 - If you don't include file extensions in your output file path, the CLI will add them based on the chosen file type.
