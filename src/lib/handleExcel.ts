@@ -4,8 +4,6 @@ import { rows, spinner, workbook } from "../index.js";
 import { cols, filepath, useCsv } from "../commands/program.js";
 import inquirer from "inquirer";
 import cp from "child_process";
-import path from "path";
-import { existsSync } from "fs";
 import { resolvePath } from "../util/resolvePath.js";
 
 export async function handleExcel() {
@@ -16,7 +14,7 @@ export async function handleExcel() {
   const mappedCols = cols.map((item) => ({ name: item }));
 
   worksheet.addTable({
-    name: "Werte",
+    name: "Values",
     ref: "A1",
     totalsRow: false,
     style: {

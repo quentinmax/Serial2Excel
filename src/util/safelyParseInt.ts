@@ -1,9 +1,10 @@
 import { InvalidArgumentError } from "commander";
 
 export default function safelyParseInt(string: string) {
-  const number = parseInt(string);
-  if (isNaN(number)) {
-    console.error("Please provide a valid number");
+  let number;
+  try {
+    number = parseInt(string);
+  } catch (error) {
     throw new InvalidArgumentError("Not a number.");
   }
 

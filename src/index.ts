@@ -11,14 +11,14 @@ export const rows: any[] = [];
 
 //Declare program
 export const program = new Command();
-program.version("0.2.0");
 
 const description = `Command-line utility for capturing data from a serial connection and exporting it to an Excel spreadsheet. IMPORTANT - Seperate your data (row insertions) with a semicolon: 'data1;data2;data3;...' in order to be processed.`;
 
+//Add metadata
+program.version("1.0.13").name("serial2excel").description(description);
+
 //Add actions onto CLI
 program
-  .name("serial2excel")
-  .description(description)
   .argument(
     "<port>",
     "specify the path or port for serial connection. (e.g. 'com3')"
