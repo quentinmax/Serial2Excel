@@ -17,6 +17,7 @@
     "serial",
     "cli",
     "csv",
+    "xlsx",
     "spreadsheet"
   ],
   "author": "quentinhoehne",
