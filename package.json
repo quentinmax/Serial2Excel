@@ -4,16 +4,27 @@
     "serial2excel": "./dist/index.js"
   },
   "version": "1.0.9",
-  "description": "",
+  "description": "Command-line utility for capturing data from a serial connection and exporting it to an Excel spreadsheet. IMPORTANT - Seperate your data (row insertions) with a semicolon: 'data1;data2;data3;...' in order to be processed.",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "link-cli": "(npm unlink serial2excel || true) && npm link",
     "dev": "tsc -w"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "arduino",
+    "excel",
+    "serial",
+    "cli",
+    "csv",
+    "spreadsheet"
+  ],
+  "author": "quentinhoehne",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quentinmax/Serial2Excel"
+  },
   "devDependencies": {
     "@types/figlet": "^1.5.8",
     "@types/gradient-string": "^1.1.5",
