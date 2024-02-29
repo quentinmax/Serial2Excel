@@ -33,7 +33,7 @@ const handleProgram = async (port: string, opts: Options) => {
 
   serialPort.pipe(parser);
 
-  // console.clear();
+  console.clear();
   const msg = "Serial2Excel";
   figlet(msg, (err, data) => {
     console.log(gradient.cristal.multiline(data));
