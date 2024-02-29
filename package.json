@@ -4,7 +4,7 @@
     "serial2excel": "./dist/index.js"
   },
   "version": "1.0.9",
-  "description": "Command-line utility for capturing data from a serial connection and exporting it to an Excel spreadsheet. IMPORTANT - Seperate your data (row insertions) with a semicolon: 'data1;data2;data3;...' in order to be processed.",
+  "description": "Command-line utility for capturing data from a serial connection and exporting it to an Excel spreadsheet.",
   "main": "index.js",
   "type": "module",
   "scripts": {
