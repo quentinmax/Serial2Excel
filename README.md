@@ -52,15 +52,13 @@ serial2excel [port] [options]
 
 2. Start Serial2Excel by running it in your terminal or command prompt.
 
-3. The CLI will start capturing data from the serial device automatically as it's sent in the semicolon-separated format.
+3. The CLI will start capturing and process data from the serial device automatically as it's sent.
 
-4. Continue sending data from the serial device in the specified format (`data1;data2;data3`). The CLI will capture and process the incoming data.
+4. When you're done sending data, send the command `stop` via the serial device. This signals to the CLI that data transmission is complete.
 
-5. When you're done sending data, send the command `stop` via the serial device. This signals to the CLI that data transmission is complete.
+5. Receiving the `stop` command, the CLI will stop capturing data and begin processing the collected data.
 
-6. Receiving the `stop` command, the CLI will stop capturing data and begin processing the collected data.
-
-7. Once the data processing is complete the output file will be generated (Excel spreadsheet / CSV files).
+6. Once the data processing is complete the output file will be generated (Excel spreadsheet / CSV files).
 
 ### Options
 
