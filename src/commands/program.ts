@@ -4,6 +4,7 @@ import chalk from "chalk";
 import { sleep } from "../util/sleep.js";
 import { ReadlineParser, SerialPort } from "serialport";
 import { receiveData } from "../lib/receiveData.js";
+import { exists } from "../util/exists.js";
 
 type Options = {
   baudRate: number;
@@ -19,6 +20,8 @@ export var useCsv = false;
 const handleProgram = async (port: string, opts: Options) => {
   const { baudRate, output, columns, csv } = opts;
 
+  await exists(port);
+
   const serialPort = new SerialPort({
     path: port,
     baudRate: baudRate,
@@ -30,7 +33,7 @@ const handleProgram = async (port: string, opts: Options) => {
 
   serialPort.pipe(parser);
 
-  console.clear();
+  // console.clear();
   const msg = "Serial2Excel";
   figlet(msg, (err, data) => {
     console.log(gradient.cristal.multiline(data));

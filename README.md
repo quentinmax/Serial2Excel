@@ -10,6 +10,7 @@ Serial2Excel is a CLI for capturing data from a serial connection (e.g. Arduino)
 - [Usage](#usage)
   - [Options](#options)
 - [Examples](#examples)
+- [Errors](#errors)
 
 ## Features
 
@@ -84,3 +85,13 @@ Capture data and save it as a CSV file named 'data.csv':
 ```bash
     serial2excel com4 --csv -o ./data -br 115200 -c 'Temperature,Humidity,Pressure'
 ```
+
+## Errors
+
+### Invalid user input (100)
+
+- `101`: Invalid Port. Make sure you chose the right port the serial connection is running on.
+
+### Invalid Data (300)
+
+- `301`: Column mismatch. The provided data has more columns than the table. Make sure every data row has the exact same columns.

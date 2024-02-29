@@ -15,7 +15,7 @@ export const program = new Command();
 const description = `Command-line utility for capturing data from a serial connection and exporting it to an Excel spreadsheet. IMPORTANT - Seperate your data (row insertions) with a semicolon: 'data1;data2;data3;...' in order to be processed.`;
 
 //Add metadata
-program.version("1.0.13").name("serial2excel").description(description);
+program.version("1.0.15").name("serial2excel").description(description);
 
 //Add actions onto CLI
 program

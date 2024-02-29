@@ -4,6 +4,7 @@ import chalk from "chalk";
 import { rows } from "../index.js";
 import { log } from "console";
 import { cols } from "../commands/program.js";
+import { program } from "commander";
 
 export async function receiveData(parser: ReadlineParser) {
   parser.on("close", () => {
@@ -20,10 +21,10 @@ export async function receiveData(parser: ReadlineParser) {
 
     if (values.length > cols.length) {
       console.error(
-        chalk.red("ERROR:"),
-        "The provided data has more columns than the table. Exiting..."
+        chalk.red("ERROR 301:"),
+        `The provided data (${values.length} columns) has more columns than the table (${cols.length} columns). Exiting...`
       );
-      process.exit(1);
+      program.error("", { code: "301", exitCode: 1 });
     }
 
     if (values.length) {
