@@ -3,7 +3,7 @@
   "bin": {
     "serial2excel": "./dist/index.js"
   },
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Command-line utility for capturing data from a serial connection and exporting it to an Excel spreadsheet.",
   "main": "index.js",
   "type": "module",
