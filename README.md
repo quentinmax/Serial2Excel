@@ -90,7 +90,7 @@ Capture data and save it as a CSV file named 'data.csv':
 
 ### Invalid user input (100)
 
-- `101`: Invalid Port. Make sure you chose the right port the serial connection is running on.
+- `101`: Invalid Port. Make sure you choose the right port, where the serial connection is running on.
 
 ### Invalid Data (300)
 
