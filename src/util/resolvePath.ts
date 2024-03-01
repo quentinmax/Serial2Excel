@@ -1,14 +1,12 @@
 import path from "path";
-import { useCsv } from "../commands/program.js";
+import { fileType } from "../commands/program.js";
 import { existsSync } from "fs";
 
 export function resolvePath(filepath: string) {
-  if (useCsv) {
-    //Handle file extensions
-    filepath = filepath.includes(".csv") ? filepath : `${filepath}.csv`;
-  } else {
-    filepath = filepath.includes(".xlsx") ? filepath : `${filepath}.xlsx`;
-  }
+  //Handle file extensions
+  filepath = filepath.includes(`.${fileType}`)
+    ? filepath
+    : `${filepath}.${fileType}`;
 
   // Check if the path starts with './' or '../'
   if (!filepath.startsWith("./") && !filepath.startsWith("../")) {

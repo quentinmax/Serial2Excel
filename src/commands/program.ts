@@ -5,20 +5,15 @@ import { sleep } from "../util/sleep.js";
 import { ReadlineParser, SerialPort } from "serialport";
 import { receiveData } from "../lib/receiveData.js";
 import { exists } from "../util/exists.js";
-
-type Options = {
-  baudRate: number;
-  output: string;
-  columns: string;
-  csv: boolean;
-};
+import { FileType, Options } from "../types/Options.js";
 
 export var filepath = "";
 export var cols: string[] = [];
-export var useCsv = false;
+export var fileType: FileType = "xlsx";
+export var seperator: string = ";";
 
 const handleProgram = async (port: string, opts: Options) => {
-  const { baudRate, output, columns, csv } = opts;
+  const { baudRate, output, columns, type, seperator: inputSeperator } = opts;
 
   await exists(port);
 
@@ -42,9 +37,7 @@ const handleProgram = async (port: string, opts: Options) => {
   await sleep(100);
   console.log(
     chalk.gray(
-      `[Port: ${port} | Baud Rate: ${baudRate} | File type: ${
-        useCsv ? ".csv" : ".xlsx"
-      } | File output: ${output}]\n`
+      `[Port: ${port} | Baud Rate: ${baudRate} | File type: ${type} | File output: ${output} | Seperator: '${inputSeperator}']\n`
     )
   );
   await sleep(1200);
@@ -58,7 +51,8 @@ const handleProgram = async (port: string, opts: Options) => {
 
   cols = columns.split(",");
   filepath = output;
-  useCsv = csv;
+  fileType = type;
+  seperator = inputSeperator;
 
   await receiveData(parser);
 };

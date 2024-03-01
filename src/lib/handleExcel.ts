@@ -1,10 +1,12 @@
 import loadWorkbook from "../util/loadWorkbook.js";
 import Excel from "exceljs";
 import { rows, spinner, workbook } from "../index.js";
-import { cols, filepath, useCsv } from "../commands/program.js";
+import { cols, filepath, fileType } from "../commands/program.js";
 import inquirer from "inquirer";
 import cp from "child_process";
 import { resolvePath } from "../util/resolvePath.js";
+import { openFile } from "../util/openFile.js";
+import { program } from "commander";
 
 export async function handleExcel() {
   spinner.start({ text: "Generating excel file..." });
@@ -27,35 +29,26 @@ export async function handleExcel() {
 
   var file = resolvePath(filepath);
 
-  if (useCsv) {
-    workbook.csv.writeFile(file).finally(async () => {
-      spinner.success({ text: `File successfully generated at: ${file}\n` });
-
-      const openFilePrompt = await inquirer.prompt({
-        name: "open_file",
-        type: "list",
-        message: "Open file?",
-        choices: ["Yes", "No"],
+  switch (fileType) {
+    case "csv":
+      workbook.csv.writeFile(file).finally(async () => {
+        openFile(file);
       });
-      if (openFilePrompt.open_file === "Yes") {
-        cp.execSync(`start ${file}`);
-      }
-      process.exit(0);
-    });
-  } else {
-    await workbook.xlsx.writeFile(file).finally(async () => {
-      spinner.success({ text: `File successfully generated at: ${file}\n` });
+      break;
 
-      const openFilePrompt = await inquirer.prompt({
-        name: "open_file",
-        type: "list",
-        message: "Open file?",
-        choices: ["Yes", "No"],
+    case "json":
+      program.error("Not supported yet.");
+
+    case "xlsx":
+      workbook.xlsx.writeFile(file).finally(async () => {
+        openFile(file);
       });
-      if (openFilePrompt.open_file === "Yes") {
-        cp.execSync(`start ${file}`);
-      }
-      process.exit(0);
-    });
+      break;
+
+    default:
+      workbook.xlsx.writeFile(file).finally(async () => {
+        openFile(file);
+      });
+      break;
   }
 }

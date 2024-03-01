@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { Command } from "commander";
+import { Command, Option } from "commander";
 import safelyParseInt from "./util/safelyParseInt.js";
 import handleProgram from "./commands/program.js";
 import { createSpinner } from "nanospinner";
@@ -24,12 +24,17 @@ program
     "specify the path or port for serial connection. (e.g. 'com3')"
   )
   .option(
-    "-br, --baud-rate [number]",
-    "sets the baud rate for serial communication",
-    (value, prev) => safelyParseInt(value),
+    "-br, --baud-rate <number>",
+    "set baud rate for serial communication",
+    (value) => safelyParseInt(value),
     9600
   )
-  .option("--csv", "use .csv instead of .xlsx")
+  .addOption(
+    new Option("-t, --type <filetype>", "set expected file type")
+      .choices(["xlsx", "csv", "json"])
+      .default("xlsx")
+  )
+  .option("-s, --seperator <separator>", "set custom seperator", ";")
   .requiredOption(
     "-o, --output <filepath>",
     "defines the output file path and filename. (e.g. '/path/to/file/filename')"

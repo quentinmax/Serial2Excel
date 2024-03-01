@@ -16,7 +16,7 @@ Serial2Excel is a CLI for capturing data from a serial connection (e.g. Arduino)
 
 - Capture data from a serial device.
 - Process incoming data in real-time.
-- Generate output files (Excel, CSV) containing the captured and processed data.
+- Generate Excel or CSV files containing the processed data.
 
 ## Installation
 
@@ -66,12 +66,13 @@ serial2excel [port] [options]
 ### Options
 
 ```
--V, --version                       output the version number
--br, --baud-rate [number]           set baud rate for serial communication (default: 9600)
---csv                               use .csv instead of .xlsx
--o, --output <filepath>             define the output file path and filename. (e.g. '/path/to/file/filename')
--c, --columns <col1,col2,...>       define the columns of the table (e.g. 'Song,Musician,Album')
--h, --help                          display help for command
+-V,  --version                       output the version number
+-br, --baud-rate <number>            set baud rate for serial communication (default: 9600)
+-t,  --type <filetype>               set expected file type (choices: "xlsx", "csv", default: "xlsx")
+-s, --seperator <separator>          set custom seperator - this will only effect the data your sending, not the columns (default: ";")
+-o,  --output <filepath>             define the output file path and filename. (e.g. '/path/to/file/filename')
+-c,  --columns <col1,col2,...>       define the columns of the table (e.g. 'Song,Musician,Album')
+-h,  --help                          display help for command
 ```
 
 ## Examples
@@ -96,4 +97,4 @@ Capture data and save it as a CSV file named 'data.csv':
 
 ### Invalid Data (300)
 
-- `301`: Column mismatch. The provided data has more columns than the table. Make sure every data row has the exact same columns.
+- `301`: Column mismatch. The provided data has more columns than the table. Make sure every data row has the exact same columns. However you can bypass this, by adding more columns to the `-c` flag than actually needed (e.g. `-c 'Temperatur,Humidity,Pressure,-,-,...'`).

@@ -3,7 +3,7 @@ import { handleExcel } from "./handleExcel.js";
 import chalk from "chalk";
 import { rows } from "../index.js";
 import { log } from "console";
-import { cols } from "../commands/program.js";
+import { cols, seperator } from "../commands/program.js";
 import { program } from "commander";
 
 export async function receiveData(parser: ReadlineParser) {
@@ -17,7 +17,7 @@ export async function receiveData(parser: ReadlineParser) {
       return handleExcel();
     }
 
-    const values = data.split(";");
+    const values = data.split(seperator);
 
     if (values.length > cols.length) {
       console.error(
