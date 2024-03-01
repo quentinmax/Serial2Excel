@@ -33,7 +33,8 @@ export async function receiveData(parser: ReadlineParser) {
     }
 
     if (values.length) {
-      rows.push(values);
+      const convertedToNumbers = values.map((str) => parseFloat(str) || str);
+      rows.push(convertedToNumbers);
     }
 
     console.log(chalk.dim(`  -  ${values.join(" | ")}`));
