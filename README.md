@@ -2,6 +2,8 @@
 
 Serial2Excel is a CLI for capturing data from a serial connection (e.g. Arduino) and exporting it to an Excel spreadsheet, a CSV or JSON file.
 
+> If this package is helping you, maybe consider [buying me a coffee](https://www.buymeacoffee.com/quentinhoehne) :).
+
 ## Table of Contents
 
 - [Features](#features)
@@ -17,6 +19,10 @@ Serial2Excel is a CLI for capturing data from a serial connection (e.g. Arduino)
 - Capture data from a serial device.
 - Process incoming data in real-time.
 - Generate Excel, CSV or 🆕JSON files containing the processed data.
+
+## Node Compatibility
+
+`serial2excel` has not been tested on every singe NodeJS version. For best results you may stick to LTS versions. Issue reports related to NodeJS are highly appreciated.
 
 ## Installation
 
