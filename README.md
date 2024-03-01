@@ -83,10 +83,10 @@ Capture data from the serial port '/dev/ttyUSB0' and save it as an Excel file na
     serial2excel /dev/ttyUSB0 -o ./data.xlsx -br 9600 -c 'Column1,Column2,Column3'
 ```
 
-Capture data and save it as a CSV file named 'data.csv':
+Capture incoming data which is seperated as `23|69|1` and save it as a CSV file named 'data.csv':
 
 ```bash
-    serial2excel com4 --csv -o ./data -br 115200 -c 'Temperature,Humidity,Pressure'
+    serial2excel com4 -s '|' -t csv -o ./data -br 115200 -c 'Temperature,Humidity,Pressure'
 ```
 
 ## Errors
