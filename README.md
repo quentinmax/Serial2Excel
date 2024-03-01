@@ -97,4 +97,4 @@ Capture incoming data which is seperated as `23|69|1` and save it as a CSV file 
 
 ### Invalid Data (300)
 
-- `301`: Column mismatch. The provided data has more columns than the table. Make sure every data row has the exact same columns. However you can bypass this, by adding more columns to the `-c` flag than actually needed (e.g. `-c 'Temperatur,Humidity,Pressure,-,-,...'`).
+- `301`: Column mismatch. The provided data has more columns than the table. Make sure every data row has the exact same columns. However you can bypass this, by adding more columns to the `-c` flag than actually needed (e.g. `-c 'Temperatur,Humidity,Pressure,-,-,...'`), though this is not recommended.
