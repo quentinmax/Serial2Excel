@@ -14,14 +14,6 @@ export function resolvePath(filepath: string) {
     filepath = `./${filepath}`;
   }
 
-  //Check if path exists
-  // var userPath = filepath.split("/");
-  // userPath.pop();
-
-  // filepath = userPath.join("/");
-
-  // if (existsSync(path.resolve(filepath)))
-
   // Resolve the path and return the absolute path
   return path.resolve(filepath);
 }

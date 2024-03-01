@@ -36,9 +36,6 @@ export async function handleExcel() {
       });
       break;
 
-    case "json":
-      program.error("Not supported yet.");
-
     case "xlsx":
       workbook.xlsx.writeFile(file).finally(async () => {
         openFile(file);

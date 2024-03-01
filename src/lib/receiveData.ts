@@ -3,8 +3,9 @@ import { handleExcel } from "./handleExcel.js";
 import chalk from "chalk";
 import { rows } from "../index.js";
 import { log } from "console";
-import { cols, seperator } from "../commands/program.js";
+import { cols, fileType, seperator } from "../commands/program.js";
 import { program } from "commander";
+import { handleJSON } from "./handleJson.js";
 
 export async function receiveData(parser: ReadlineParser) {
   parser.on("close", () => {
@@ -14,7 +15,11 @@ export async function receiveData(parser: ReadlineParser) {
   parser.on("data", (data: string) => {
     if (data === "stop") {
       console.log("\n");
-      return handleExcel();
+      if (fileType === "json") {
+        return handleJSON();
+      } else {
+        return handleExcel();
+      }
     }
 
     const values = data.split(seperator);

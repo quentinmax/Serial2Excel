@@ -1,6 +1,6 @@
 ![serial2excel-screenshot](https://github.com/quentinmax/Serial2Excel/assets/82818659/62dfc98d-ba84-4372-884c-3d69e31e5d01)
 
-Serial2Excel is a CLI for capturing data from a serial connection (e.g. Arduino) and exporting it to an Excel spreadsheet or a .csv file.
+Serial2Excel is a CLI for capturing data from a serial connection (e.g. Arduino) and exporting it to an Excel spreadsheet, a CSV or JSON file.
 
 ## Table of Contents
 
@@ -16,7 +16,7 @@ Serial2Excel is a CLI for capturing data from a serial connection (e.g. Arduino)
 
 - Capture data from a serial device.
 - Process incoming data in real-time.
-- Generate Excel or CSV files containing the processed data.
+- Generate Excel, CSV or 🆕JSON files containing the processed data.
 
 ## Installation
 
@@ -41,7 +41,7 @@ npx serial2excel [port] [options]
 
 ## Usage
 
-Once installed, you can use the serial2excel command to capture data from a serial device and export it to Excel or CSV format.
+Once installed, you can use the serial2excel command to capture data from a serial device and export it to Excel, CSV or JSON format.
 
 > Ensure that no other devices or programs are utilizing the serial connection before running the command.
 
@@ -61,14 +61,14 @@ serial2excel [port] [options]
 
 5. Receiving the `stop` command, the CLI will stop capturing data and begin processing the collected data.
 
-6. Once the data processing is complete the output file will be generated (Excel spreadsheet / CSV files).
+6. Once the data processing is complete the output file will be generated (Excel spreadsheet / CSV / JSON).
 
 ### Options
 
 ```
 -V,  --version                       output the version number
 -br, --baud-rate <number>            set baud rate for serial communication (default: 9600)
--t,  --type <filetype>               set expected file type (choices: "xlsx", "csv", default: "xlsx")
+-t,  --type <filetype>               set expected file type (choices: "xlsx", "csv", "json", default: "xlsx")
 -s, --seperator <separator>          set custom seperator - this will only effect the data your sending, not the columns (default: ";")
 -o,  --output <filepath>             define the output file path and filename. (e.g. '/path/to/file/filename')
 -c,  --columns <col1,col2,...>       define the columns of the table (e.g. 'Song,Musician,Album')
@@ -98,3 +98,7 @@ Capture incoming data which is seperated as `23|69|1` and save it as a CSV file 
 ### Invalid Data (300)
 
 - `301`: Column mismatch. The provided data has more columns than the table. Make sure every data row has the exact same columns. However you can bypass this, by adding more columns to the `-c` flag than actually needed (e.g. `-c 'Temperatur,Humidity,Pressure,-,-,...'`), though this is not recommended.
+
+### Internal (500)
+
+- `501`: Error writing to file. Try again later.
