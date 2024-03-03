@@ -13,6 +13,7 @@ Serial2Excel is a CLI for capturing data from a serial connection (e.g. Arduino)
   - [Options](#options)
 - [Examples](#examples)
 - [Errors](#errors)
+- [License](#license)
 
 ## Features
 
@@ -112,3 +113,7 @@ serial2excel [port] [options]
 ### Internal (500)
 
 - `501`: Error writing to file. Try again later.
+
+## License
+
+[MIT](https://github.com/quentinmax/Serial2Excel/blob/master/LICENSE.md)
