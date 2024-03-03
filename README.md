@@ -22,7 +22,7 @@ Serial2Excel is a CLI for capturing data from a serial connection (e.g. Arduino)
 
 ## Node Compatibility
 
-`serial2excel` has not been tested on every singe NodeJS version. For best results you may stick to LTS versions. Issue reports related to NodeJS are highly appreciated.
+`serial2excel` has not been tested on every singe NodeJS version. For best results you may stick to LTS versions. Issue reports related are highly appreciated.
 
 ## Installation
 
@@ -42,8 +42,9 @@ npx serial2excel [port] [options]
 
 - Ensure that no other devices or programs are utilizing the serial connection before running the command.
 - If you don't include file extensions in your output file path, the CLI will add them based on the chosen file type (see [second example](#examples)).
-- Use -h or --help to display information about the available options.
+- If you have any accuring issues, [email me](mailto:quentinhoehne.dev@gmail.com) or create a [Github issue](https://github.com/quentinmax/Serial2Excel/issues).
 - If you are using Windows PowerShell make sure two wrap your columns in quotation marks `-c 'Column1,Column2,Column3'`. Otherwise PowerShell parses the commas wrong, resulting in an error.
+- Use -h or --help to display information about the available options.
 
 ## Usage
 
@@ -55,7 +56,7 @@ Once installed, you can use the serial2excel command to capture data from a seri
 serial2excel [port] [options]
 ```
 
-1. Ensure that the serial device is configured to send data in a seperated format, such as `data1;data2;...`. You can define a custom seperator setting the `-s` flag.
+1. Ensure that the serial device is configured to send data in a seperated format, such as `data1;data2;...`. You can define a custom seperator setting the `-s` flag. **Your serial monitor must be set to use `NR & CR`**.
 
 ![serial-monitor-screenshot](https://github.com/quentinmax/Serial2Excel/assets/82818659/7ce5d819-2d70-4066-87b4-b1109e74b2eb)
 
@@ -67,13 +68,15 @@ serial2excel [port] [options]
 
 5. Once the data processing is complete the output file will be generated (Excel spreadsheet / CSV / JSON).
 
+> If you have any accuring issues, do not hesitate to [email me](mailto:quentinhoehne.dev@gmail.com) or create a [Github issue](https://github.com/quentinmax/Serial2Excel/issues).
+
 ### Options
 
 ```
 -V,  --version                       output the version number
 -br, --baud-rate <number>            set baud rate for serial communication (default: 9600)
 -t,  --type <filetype>               set expected file type (choices: "xlsx", "csv", "json", default: "xlsx")
--s, --seperator <separator>          set custom seperator - this will only effect the data your sending, not the columns (default: ";")
+-s, --seperator <separator>          set custom seperator - this will only effect the data your sending, not the columns specified in the cli (default: ";")
 -o,  --output <filepath>             define the output file path and filename. (e.g. '/path/to/file/filename')
 -c,  --columns <col1,col2,...>       define the columns of the table (e.g. 'Song,Musician,Album')
 -h,  --help                          display help for command
@@ -91,8 +94,10 @@ serial2excel [port] [options]
 2. Your serial device runs on port '/dev/ttyUSB0' and sends data about a hardware device your testing and debugging. The device operates at 115200 baud and the data is formatted as `Acceleration|Speed|Timestamp`.
 
 ```bash
-    serial2excel /dev/ttyUSB0 -o ./data.xlsx -br 115200 -s '|' -c 'Acceleration|Speed|Timestamp'
+    serial2excel /dev/ttyUSB0 -o ./data.xlsx -br 115200 -s '|' -c 'Acceleration,Speed,Timestamp'
 ```
+
+> Note: Changing the seperator only applies to the data your sending from your serial device. In the CLI itself, keep using the comma.
 
 ## Errors
 

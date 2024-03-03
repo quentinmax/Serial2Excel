@@ -1,6 +1,5 @@
 import path from "path";
 import { fileType } from "../commands/program.js";
-import { existsSync } from "fs";
 
 export function resolvePath(filepath: string) {
   //Handle file extensions
