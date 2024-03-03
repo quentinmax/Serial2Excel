@@ -55,19 +55,17 @@ Once installed, you can use the serial2excel command to capture data from a seri
 serial2excel [port] [options]
 ```
 
-1. Ensure that the serial device is configured to send data in a semicolon-separated format, such as `data1;data2;data3`.
+1. Ensure that the serial device is configured to send data in a seperated format, such as `data1;data2;...`. You can define a custom seperator setting the `-s` flag.
 
 ![serial-monitor-screenshot](https://github.com/quentinmax/Serial2Excel/assets/82818659/7ce5d819-2d70-4066-87b4-b1109e74b2eb)
 
-2. Start Serial2Excel by running it in your terminal or command prompt.
+2. Start Serial2Excel by running it in your terminal or command prompt. **Set the columns as they fit to your data**.
 
-3. The CLI will start capturing and process data from the serial device automatically as it's sent.
+3. The CLI will capture data from the serial device automatically as it's sent.
 
 4. When you're done sending data, send the command `stop` via the serial device. This signals to the CLI that data transmission is complete.
 
-5. Receiving the `stop` command, the CLI will stop capturing data and begin processing the collected data.
-
-6. Once the data processing is complete the output file will be generated (Excel spreadsheet / CSV / JSON).
+5. Once the data processing is complete the output file will be generated (Excel spreadsheet / CSV / JSON).
 
 ### Options
 
@@ -83,16 +81,17 @@ serial2excel [port] [options]
 
 ## Examples
 
-Capture data from the serial port '/dev/ttyUSB0' and save it as an Excel file named 'data.xlsx':
+1. You have an Arduino running on port 'com4', which sends weather data including Temperatur, Humidity and Pressure formatted as `Temperatur;Humidity;Pressure`. You want to export the data as CSV.
+   Your command prompt might look like this:
 
 ```bash
-    serial2excel /dev/ttyUSB0 -o ./data.xlsx -br 9600 -c 'Column1,Column2,Column3'
+    serial2excel com4 -t csv -o ./data -c 'Temperature,Humidity,Pressure'
 ```
 
-Capture incoming data which is seperated as `23|69|1` and save it as a CSV file named 'data.csv':
+2. Your serial device runs on port '/dev/ttyUSB0' and sends data about a hardware device your testing and debugging. The device operates at 115200 baud and the data is formatted as `Acceleration|Speed|Timestamp`.
 
 ```bash
-    serial2excel com4 -s '|' -t csv -o ./data -br 115200 -c 'Temperature,Humidity,Pressure'
+    serial2excel /dev/ttyUSB0 -o ./data.xlsx -br 115200 -s '|' -c 'Acceleration|Speed|Timestamp'
 ```
 
 ## Errors
