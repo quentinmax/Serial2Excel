@@ -42,7 +42,7 @@ npx serial2excel [port] [options]
 
 - Ensure that no other devices or programs are utilizing the serial connection before running the command.
 - If you don't include file extensions in your output file path, the CLI will add them based on the chosen file type (see [second example](#examples)).
-- If you have any accuring issues, [email me](mailto:quentinhoehne.dev@gmail.com) or create a [Github issue](https://github.com/quentinmax/Serial2Excel/issues).
+- If you have any occuring issues, [email me](mailto:quentinhoehne.dev@gmail.com) or create a [Github issue](https://github.com/quentinmax/Serial2Excel/issues).
 - If you are using Windows PowerShell make sure two wrap your columns in quotation marks `-c 'Column1,Column2,Column3'`. Otherwise PowerShell parses the commas wrong, resulting in an error.
 - Use -h or --help to display information about the available options.
 
@@ -68,7 +68,7 @@ serial2excel [port] [options]
 
 5. Once the data processing is complete the output file will be generated (Excel spreadsheet / CSV / JSON).
 
-> If you have any accuring issues, do not hesitate to [email me](mailto:quentinhoehne.dev@gmail.com) or create a [Github issue](https://github.com/quentinmax/Serial2Excel/issues).
+> If you have any occuring issues, do not hesitate to [email me](mailto:quentinhoehne.dev@gmail.com) or create a [Github issue](https://github.com/quentinmax/Serial2Excel/issues).
 
 ### Options
 
