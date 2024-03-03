@@ -4,6 +4,7 @@ import safelyParseInt from "./util/safelyParseInt.js";
 import handleProgram from "./commands/program.js";
 import { createSpinner } from "nanospinner";
 import Excel from "exceljs";
+import packageJson from "../package.json";
 
 export const spinner = createSpinner();
 export const workbook = new Excel.Workbook();
@@ -15,7 +16,10 @@ export const program = new Command();
 const description = `Command-line utility for capturing data from a serial connection and exporting it to an Excel spreadsheet. IMPORTANT - Seperate your data (row insertions) with a semicolon: 'data1;data2;data3;...' in order to be processed.`;
 
 //Add metadata
-program.version("1.1.2").name("serial2excel").description(description);
+program
+  .version(packageJson.version)
+  .name("serial2excel")
+  .description(description);
 
 //Add actions onto CLI
 program
