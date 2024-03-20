@@ -3,6 +3,7 @@
 Serial2Excel is a CLI for capturing data from a serial connection (e.g. Arduino) and exporting it to an Excel spreadsheet, a CSV or JSON file.
 
 > If this package is helping you, maybe consider to
+
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/quentinhoehne)
 
 ## Table of Contents
