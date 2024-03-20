@@ -4,7 +4,7 @@ Serial2Excel is a CLI for capturing data from a serial connection (e.g. Arduino)
 
 > If this package is helping you, maybe consider
 
-[!["Buy Me A Coffee"](https://cdn.buymeacoffee.com/buttons/v2/default-green.png)](https://www.buymeacoffee.com/quentinhoehne)
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/quentinhoehne)
 
 ## Table of Contents
 
