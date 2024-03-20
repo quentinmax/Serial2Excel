@@ -2,7 +2,8 @@
 
 Serial2Excel is a CLI for capturing data from a serial connection (e.g. Arduino) and exporting it to an Excel spreadsheet, a CSV or JSON file.
 
-> If this package is helping you, maybe consider [buying me a coffee](https://www.buymeacoffee.com/quentinhoehne) :).
+> If this package is helping you, maybe consider
+[!["Buy Me A Coffee"](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://www.buymeacoffee.com/quentinhoehne)
 
 ## Table of Contents
 
@@ -19,11 +20,11 @@ Serial2Excel is a CLI for capturing data from a serial connection (e.g. Arduino)
 
 - Capture data from a serial device.
 - Process incoming data in real-time.
-- Generate Excel, CSV or 🆕JSON files containing the processed data.
+- Generate Excel, CSV or JSON files containing the processed data.
 
 ## Node Compatibility
 
-`serial2excel` has not been tested on every singe NodeJS version. For best results you may stick to LTS versions. Issue reports related are highly appreciated.
+Use at least Node v16+, however `serial2excel` has not been tested on every singe NodeJS version. For best results you may stick to LTS versions. Issue reports related are highly appreciated.
 
 ## Installation
 
@@ -42,7 +43,7 @@ npx serial2excel [port] [options]
 ## Notes
 
 - Ensure that no other devices or programs are utilizing the serial connection before running the command.
-- If you don't include file extensions in your output file path, the CLI will add them based on the chosen file type (see [second example](#examples)).
+- If you don't include file extensions in your output file path, the CLI will add them based on the chosen file type (see [first example](#examples)).
 - If you have any occuring issues, [email me](mailto:quentinhoehne.dev@gmail.com) or create a [Github issue](https://github.com/quentinmax/Serial2Excel/issues).
 - If you are using Windows PowerShell make sure two wrap your columns in quotation marks `-c 'Column1,Column2,Column3'`. Otherwise PowerShell parses the commas wrong, resulting in an error.
 - Use -h or --help to display information about the available options.
@@ -57,11 +58,11 @@ Once installed, you can use the serial2excel command to capture data from a seri
 serial2excel [port] [options]
 ```
 
-1. Ensure that the serial device is configured to send data in a seperated format, such as `data1;data2;...`. You can define a custom seperator setting the `-s` flag. **Your serial monitor must be set to use `NR & CR`**.
+1. Ensure that the serial device is configured to send data in a seperated format, such as `data1;data2;...`. You can define a custom seperator setting the `-s` flag. **Your serial monitor must be set to use** `NR & CR`.
 
 ![serial-monitor-screenshot](https://github.com/quentinmax/Serial2Excel/assets/82818659/7ce5d819-2d70-4066-87b4-b1109e74b2eb)
 
-2. Start Serial2Excel by running it in your terminal or command prompt. **Set the columns as they fit to your data**.
+2. Start Serial2Excel by running it in your terminal or command prompt. **Define the columns so they fit to the data your sending**.
 
 3. The CLI will capture data from the serial device automatically as it's sent.
 
@@ -98,7 +99,7 @@ serial2excel [port] [options]
     serial2excel /dev/ttyUSB0 -o ./data.xlsx -br 115200 -s '|' -c 'Acceleration,Speed,Timestamp'
 ```
 
-> Note: Changing the seperator only applies to the data your sending from your serial device. In the CLI itself, keep using the comma.
+> Note: Changing the seperator only applies to the data your sending from your serial device. In the CLI itself, use the comma.
 
 ## Errors
 
