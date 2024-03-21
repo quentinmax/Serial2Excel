@@ -9,6 +9,7 @@ Serial2Excel is a CLI for capturing data from a serial connection (e.g. Arduino)
 ## Table of Contents
 
 - [Features](#features)
+- [Node Compatibility](#nodeCompatibility)
 - [Installation](#installation)
 - [Notes](#notes)
 - [Usage](#usage)
